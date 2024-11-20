@@ -23,3 +23,9 @@ export {
     mysqlConnection,
     userDatabase,
 } from "./functions/mysql/connections.ts";
+
+export { validateUser } from "./functions/supabase/validate_token.ts";
+export {
+    supabaseClient,
+    superAccessClient,
+} from "./functions/supabase/supabase_client.ts";
