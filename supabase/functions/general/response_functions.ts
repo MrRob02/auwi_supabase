@@ -1,5 +1,5 @@
 // deno-lint-ignore-file no-explicit-any
-import { Nullable } from "./mod.ts";
+import { Nullable } from "./types.ts";
 
 type mensaje = { message: string; data: any };
 export function errorResponse(response: mensaje): Response {
