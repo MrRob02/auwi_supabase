@@ -8,8 +8,8 @@ import { userDatabase, UserDatabaseResult } from "../mysql/connections.ts";
 import { serverError } from "../general/data_response_functions.ts";
 
 export async function validateUser(req: Request): Promise<UserDatabaseResult> {
-    // Obtener el token del encabezado de autorización
-    const authHeader = req.headers.get("Authorization");
+    const newReq = req.clone();
+    const authHeader = newReq.headers.get("Authorization");
     if (!authHeader) {
         return { data: null, errorResponse: headerMissingResponse() };
     }
@@ -24,7 +24,7 @@ export async function validateUser(req: Request): Promise<UserDatabaseResult> {
     if (error) {
         return { data: null, errorResponse: tokenInvalidResponse() };
     }
-    const { local_db_version } = await req.json();
+    const { local_db_version } = await newReq.json();
     if (typeof local_db_version !== "number") {
         return {
             data: null,
