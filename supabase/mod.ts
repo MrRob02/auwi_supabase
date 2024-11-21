@@ -21,6 +21,7 @@ export { Nullable } from "./functions/general/types.ts";
 
 export {
     mysqlConnection,
+    UserDatabase,
     userDatabase,
 } from "./functions/mysql/connections.ts";
 
