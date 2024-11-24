@@ -1,33 +1,35 @@
 export class Secrets {
-  static isLocal: boolean;
+  private static _isLocal: boolean;
 
   static set setLocal(value: boolean) {
-    this.isLocal = value;
+    this._isLocal = value;
   }
   static get GetUrl(): string {
-    if (this.isLocal === undefined) {
+    if (this._isLocal === undefined) {
       throw new Error("isLocal is not defined");
     }
     return Deno.env.get(
-      this.isLocal ? Deno.env.get("LOCAL_URL")! : Deno.env.get("SUPABASE_URL")!,
+      this._isLocal
+        ? Deno.env.get("LOCAL_URL")!
+        : Deno.env.get("SUPABASE_URL")!,
     )!;
   }
   static get GetAnonKey(): string {
-    if (this.isLocal === undefined) {
+    if (this._isLocal === undefined) {
       throw new Error("isLocal is not defined");
     }
     return Deno.env.get(
-      this.isLocal
+      this._isLocal
         ? Deno.env.get("LOCAL_KEY")!
         : Deno.env.get("SUPABASE_ANON_KEY")!,
     )!;
   }
   static get GetServiceRoleKey(): string {
-    if (this.isLocal === undefined) {
+    if (this._isLocal === undefined) {
       throw new Error("isLocal is not defined");
     }
     return Deno.env.get(
-      this.isLocal
+      this._isLocal
         ? Deno.env.get("LOCAL_KEY")!
         : Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
     )!;
