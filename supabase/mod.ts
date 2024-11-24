@@ -35,3 +35,5 @@ export { fetchSession } from "./functions/login/fetch_session.ts";
 export { isUserRegisteredInDatabase } from "./functions/login/is_user_registered.ts";
 export { validateInputs } from "./functions/login/validate_inputs.ts";
 export { LoginMessages } from "./functions/login/login_messages.ts";
+
+export { Secrets } from "./functions/general/env.ts";
