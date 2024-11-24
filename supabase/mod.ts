@@ -36,4 +36,4 @@ export { isUserRegisteredInDatabase } from "./functions/login/is_user_registered
 export { validateInputs } from "./functions/login/validate_inputs.ts";
 export { LoginMessages } from "./functions/login/login_messages.ts";
 
-export { Secrets } from "./functions/general/env.ts";
+//export { Secrets } from "./functions/general/env.ts";
