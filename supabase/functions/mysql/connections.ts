@@ -35,8 +35,12 @@ export async function userDatabase(
         "database_user_id, db_name",
     ).single();
     if (error) {
-        return { data: null, errorResponse: serverError(error) };
+        return {
+            data: null,
+            errorResponse: serverError(JSON.stringify(error)),
+        };
     }
+    console.log("Tabla users supabase completado");
     const { database_user_id: user_id, db_name: db } = responseDB || {};
 
     if (!db || typeof user_id !== "number") {
